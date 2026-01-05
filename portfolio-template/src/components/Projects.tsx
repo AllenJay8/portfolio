@@ -22,7 +22,7 @@ const projects: Project[] = [
     iconType: "boxes",
     tags: ["Django", "HTML", "JavaScript", "Tailwind CSS"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/AllenJay8/Portfolio",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const projects: Project[] = [
     iconType: "globe",
     tags: ["HTML", "CSS", "Tailwind CSS", "JavaScript"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/AllenJay8/Portfolio",
   },
 ];
 
