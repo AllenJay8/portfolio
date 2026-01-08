@@ -76,7 +76,7 @@ const Contact = () => {
             Let's <span className="text-gradient">Connect</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I'm open to feedback, collaboration, or just a friendly chat about web development. Feel free to reach out!
+            Have a question or want to work together? I'd love to hear from you. Feel free to reach out through the form below or connect with me on social media.
           </p>
         </motion.div>
 

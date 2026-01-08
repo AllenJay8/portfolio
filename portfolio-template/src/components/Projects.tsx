@@ -3,12 +3,14 @@ import { ExternalLink, Github, Box, Globe } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import projectInventoryImage from "../assets/project-inventory.png";
 
 interface Project {
   id: number;
   title: string;
   description: string;
   iconType: "boxes" | "globe";
+  image?: string;
   tags: string[];
   demoUrl?: string;
   githubUrl?: string;
@@ -18,8 +20,9 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Inventory System",
-    description: "An inventory management system built to track products and manage stock levels. Focused on database design, management, and integration using Django Framework.",
+    description: "A Django-based inventory management system featuring product tracking and stock level management. Built to learn database design and backend integration with Django Framework.",
     iconType: "boxes",
+    image: projectInventoryImage,
     tags: ["Django", "HTML", "JavaScript", "Tailwind CSS"],
     demoUrl: "#",
     githubUrl: "https://github.com/AllenJay8/Portfolio",
@@ -27,8 +30,9 @@ const projects: Project[] = [
   {
     id: 2,
     title: "Simple Web Pages",
-    description: "Created basic websites to practice layout, styling, and structure. Includes personal pages, landing pages, and small static websites.",
+    description: "A collection of responsive static websites built to master HTML, CSS, and Tailwind CSS fundamentals. Focused on clean layouts, proper structure, and responsive design principles.",
     iconType: "globe",
+    image: "/image.png",
     tags: ["HTML", "CSS", "Tailwind CSS", "JavaScript"],
     demoUrl: "#",
     githubUrl: "https://github.com/AllenJay8/Portfolio",
@@ -80,8 +84,16 @@ const Projects = () => {
               whileHover={{ y: -10 }}
             >
               <Card className="card-glass overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:glow-effect">
-                <div className="h-48 bg-secondary flex items-center justify-center">
-                  <IconRenderer type={project.iconType} />
+                <div className="h-48 bg-secondary flex items-center justify-center overflow-hidden">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <IconRenderer type={project.iconType} />
+                  )}
                 </div>
                 <div className="p-6 space-y-4">
                   <h3 className="text-xl font-semibold">{project.title}</h3>
@@ -93,31 +105,6 @@ const Projects = () => {
                         {tag}
                       </Badge>
                     ))}
-                  </div>
-
-                  <div className="flex gap-2 pt-2">
-                    {project.demoUrl && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="flex-1"
-                        onClick={() => window.open(project.demoUrl, "_blank")}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </Button>
-                    )}
-                    {project.githubUrl && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="flex-1"
-                        onClick={() => window.open(project.githubUrl, "_blank")}
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                    )}
                   </div>
                 </div>
               </Card>

@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Drawer, DrawerContent, DrawerTrigger, DrawerClose } from "@/components/ui/drawer";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
@@ -79,21 +83,45 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="p-2"
-              onClick={() => {
-                // Simple mobile menu toggle (can be enhanced with a drawer component)
-                const firstSection = document.getElementById("home");
-                firstSection?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              <div className="space-y-1.5">
-                <div className="w-6 h-0.5 bg-foreground" />
-                <div className="w-6 h-0.5 bg-foreground" />
-                <div className="w-6 h-0.5 bg-foreground" />
-              </div>
-            </motion.button>
+            <Drawer direction="right">
+              <DrawerTrigger asChild>
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  className="p-2"
+                >
+                  <Menu className="w-6 h-6" />
+                </motion.button>
+              </DrawerTrigger>
+              <DrawerContent className="h-full w-64 ml-auto top-0 right-0 bottom-0 rounded-none border-l">
+                <div className="p-4">
+                  <div className="flex justify-between items-center mb-8">
+                    <span className="text-xl font-bold text-gradient">Menu</span>
+                    <DrawerClose className="p-2">
+                      <X className="w-6 h-6" />
+                    </DrawerClose>
+                  </div>
+                  <div className="space-y-4">
+                    {navItems.map((item) => (
+                      <motion.a
+                        key={item.name}
+                        href={item.href}
+                        className={`block text-lg font-medium transition-colors ${
+                          activeSection === item.href.substring(1)
+                            ? "text-primary"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                        whileHover={{ x: 5 }}
+                        onClick={() => {
+                          // Drawer will close automatically when link is clicked
+                        }}
+                      >
+                        {item.name}
+                      </motion.a>
+                    ))}
+                  </div>
+                </div>
+              </DrawerContent>
+            </Drawer>
           </div>
         </div>
       </div>
