@@ -30,7 +30,7 @@ const Certificates = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-gradient">Certificate</span>
+            My <span className="text-gradient">Certificates</span>
           </h2>
         </motion.div>
 
