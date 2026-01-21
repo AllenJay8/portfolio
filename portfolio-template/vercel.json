@@ -1,4 +1,7 @@
 {
+  "buildCommand": "cd portfolio-template && npm install && npm run build",
+  "outputDirectory": "portfolio-template/dist",
+  "framework": "vite",
   "rewrites": [
     {
       "source": "/(.*)",
