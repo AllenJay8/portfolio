@@ -49,11 +49,10 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent blur-lg opacity-75" />
               <img
                 src={allenProfile}
                 alt="Allen Jay Laher"
-                className="relative w-32 h-32 rounded-full border-4 border-primary/50 object-cover"
+                className="relative w-48 h-auto object-contain mt-16 rounded-full border-4 border-primary/50"
               />
             </div>
           </motion.div>
